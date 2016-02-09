@@ -129,6 +129,11 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+.main-logo-ads-wrap {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 </style>
 
 </head>
