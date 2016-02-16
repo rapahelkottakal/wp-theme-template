@@ -98,6 +98,7 @@
 }
 
 .menu ul li {
+    display: block;
     padding: 10px;
 }
 
@@ -145,9 +146,9 @@
         <div class="menu">
             <div class="header"></div>
             <ul>
-                <li>Home</li>
-                <li>Properties</li>
-                <li>About</li>
+                <li><a href="http://www.myntra.com/lookgood">Home</a></li>
+                <li><a href="#">Style Tips</a></li>
+                <li><a href="#">Hot off the Web</a></li>
             </ul>
         </div>
 

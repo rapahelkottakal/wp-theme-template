@@ -76,12 +76,40 @@ h3.entry-title {
 		<?php
 
 		$categoryList = array(
-				'makeover' => '6396',
-				'footwear_diaries' => '6380',
-				'celeb_style' => '6379',
 				'style_tips' => '6381',
-				'fashion_guides' => '628',
+				'style_tips_old' => '4195',
+
+				'hot_off_the_web' => '3567',
+
+				'style_help' => '4752',
+				'lg_lessons' => '4750',
+				'daily_fix' => '7',
+				'assisted_shopping' => '4741',
+				'features' => '4755',
+
+				'vocab' => '6382',
+
+				'videos' => '4754',
+				'myntra_tv' => '2',
+
+				'celeb_style' => '6379',
+				'celeb_style_old' => '4742',
+
+				'beauty_n_grooming' => '4746',
+
+				'trends_to_try' => '4753',
+				'trends' => '6345',
+
 				'quiz' => '4751',
+
+				'fashion_guides' => '628',
+
+				'fashion_trivia' => '5058',
+				'did_you_know' => '4743',
+
+				'makeover' => '6396',
+				
+				'footwear_diaries' => '6380',
 			);
 
 		$categories = implode(',', $categoryList);

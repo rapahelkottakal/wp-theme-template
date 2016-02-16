@@ -15,7 +15,7 @@
 		};
 	});
 
-	console.log($('#body-background'));
+	// console.log($('#body-background'));
 
 	// click overlay and close menu
 	$overlay.click(function() {
