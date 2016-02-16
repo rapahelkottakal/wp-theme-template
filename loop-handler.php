@@ -26,7 +26,6 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 			);
 
 		$args['cat'] = $category;
-		$args['posts_per_page'] = $offset;
 		$args['offset'] = $offset;
 		$args['tag_slug__and'] = $gender;
 
@@ -53,9 +52,13 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 	        	?>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
-					if ($date_post > $date_change):
+					$this_category = get_the_category();
+					$category_id = $this_category[0]->cat_ID;
+					if ( $category_id == 4754 || $category_id == 2 || $category_id == 4741 ) :
+						get_template_part ( 'includes/content/item', 'normal' );
+					elseif ($date_post > $date_change):
 						get_template_part ( 'includes/content/item', 'image' );
-					else:
+					elseif ($date_post < $date_change):
 						get_template_part ( 'includes/content/item', 'normal' );
 					endif;
 					?>

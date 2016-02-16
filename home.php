@@ -108,7 +108,7 @@ h3.entry-title {
 				'did_you_know' => '4743',
 
 				'makeover' => '6396',
-				
+
 				'footwear_diaries' => '6380',
 			);
 
@@ -154,9 +154,13 @@ h3.entry-title {
 	        	?>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
-					if ($date_post > $date_change):
+					$this_category = get_the_category();
+					$category_id = $this_category[0]->cat_ID;
+					if ( $category_id == 4754 || $category_id == 2 || $category_id == 4741 ) :
+						get_template_part ( 'includes/content/item', 'normal' );
+					elseif ($date_post > $date_change):
 						get_template_part ( 'includes/content/item', 'image' );
-					else:
+					elseif ($date_post < $date_change):
 						get_template_part ( 'includes/content/item', 'normal' );
 					endif;
 					?>
