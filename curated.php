@@ -1,6 +1,6 @@
 <?php 
 
-/* Template Name: Home */
+/* Template Name: Curated */
 
 get_header();
 global $post;
@@ -64,7 +64,10 @@ h3.entry-title {
 
 <div class="page-container container">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<?php the_content(); ?>
+	<?php 
+		$page_id = get_the_ID();
+		the_content();
+	?>
 	<?php endwhile; endif; ?>
 </div>
 
@@ -75,42 +78,19 @@ h3.entry-title {
 
 		<?php
 
-		$categoryList = array(
-				'style_tips' => '6381',
-				'style_tips_old' => '4195',
+		$categoryList = array();
 
-				'hot_off_the_web' => '3567',
-
-				'style_help' => '4752',
-				'lg_lessons' => '4750',
-				'daily_fix' => '7',
-				'assisted_shopping' => '4741',
-				'features' => '4755',
-
-				'vocab' => '6382',
-
-				'videos' => '4754',
-				'myntra_tv' => '2',
-
-				'celeb_style' => '6379',
-				'celeb_style_old' => '4742',
-
-				'beauty_n_grooming' => '4746',
-
-				'trends_to_try' => '4753',
-				'trends' => '6345',
-
-				'quiz' => '4751',
-
-				'fashion_guides' => '628',
-
-				'fashion_trivia' => '5058',
-				'did_you_know' => '4743',
-
-				'makeover' => '6396',
-
-				'footwear_diaries' => '6380',
-			);
+		if ($page_id == 45117): //style tips
+			$categoryList['style_tips'] = '6381';
+		elseif($page_id == 80232):
+			$categoryList['style_tips'] = '6379';
+		elseif($page_id == 61715):
+			$categoryList['trends'] = '6378';
+		elseif($page_id == 80408):
+			$categoryList['footwear_diaries'] = '6380';
+		elseif($page_id == 80412):
+			$categoryList['street_style'] = '6512';
+		endif;
 
 		$categories = implode(',', $categoryList);
 
@@ -147,24 +127,10 @@ h3.entry-title {
 	    		$counter++;
 	    		$post->i_summary = get_sub_field('block_summary');
 
-	    		$date_change = '2015-11-24';
-
-	    		$date_post = $post->post_date;
-
 	        	?>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
-					$this_category = get_the_category();
-					$category_id = $this_category[0]->cat_ID;
-					if ( $category_id == 4754 || $category_id == 2 || $category_id == 4741 ) :
-						get_template_part ( 'includes/content/item', 'normal' );
-					elseif ($category_id == 3567):
 						get_template_part ( 'includes/content/item', 'curated' );
-					elseif ($date_post > $date_change):
-						get_template_part ( 'includes/content/item', 'image' );
-					elseif ($date_post < $date_change):
-						get_template_part ( 'includes/content/item', 'normal' );
-					endif;
 					?>
 	        	</div>
 	            <?php
@@ -208,7 +174,7 @@ var load_next_posts = function(){
             type       : "GET",
             data       : {offset: next_offset, gender: gender, category: category },
             dataType   : "html",
-            url        : "http://www.myntra.com/lookgood/wp-content/themes/Curated/loop-handler.php",
+            url        : "http://www.myntra.com/lookgood/wp-content/themes/Curated/loop-handler-curated.php",
             beforeSend : function(){
                 alert.html('<img src="http://www.myntra.com/lookgood/wp-content/themes/Curated/images/loader.gif" /> Loading... Please Wait').insertAfter('.page-wrapper').fadeIn();
             },
