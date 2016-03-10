@@ -3,7 +3,7 @@
 	// Thumbnail
 	if ( has_post_thumbnail() ) { // Set Featured Image
 		?>
-		<div class="thumb-wrap zoom-zoom">
+		<div class="thumb-wrap">
 			<?php
 			if( get_field('c_url') != '' ):
 				echo '<a href="' . get_field('c_url') . '" target="_blank" rel="bookmark" title="' . get_the_title() . '">';
@@ -19,7 +19,7 @@
 		<?php
     } elseif( maha_first_post_image() ) { // Set myntra placeholder image
     	?>
-		<div class="thumb-wrap zoom-zoom">
+		<div class="thumb-wrap">
 			<?php
 			if( get_field('c_url') != '' ):
 				echo '<a href="' . get_field('c_url') . '" target="_blank" rel="bookmark" title="' . get_title() . '">';

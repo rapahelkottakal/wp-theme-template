@@ -1,6 +1,6 @@
 <?php 
 
-/* Template Name: Home */
+/* Template Name: Click through */
 
 get_header();
 global $post;
@@ -24,18 +24,18 @@ $gender = (isset($_GET['gender'])) ? $_GET['gender'] : '';
 .up-up-child .meta-subtitle {
 	display: block !important;
 	margin: 2% 5%;
-	margin-top: 0;
+}
+
+.post-box-big {
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+	border-radius: 2px;
 }
 
 h3.entry-title {
 	font-family: "Whitney", Arial, sans-serif;
-	margin: 2% 5%;
-    margin-bottom: 1px;
-}
-
-img.entry-thumb {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+	margin: 8% 5%;
+	margin-bottom: 5px;
 }
 
 .post-category {
@@ -56,6 +56,15 @@ img.entry-thumb {
 	padding: 0;
 }
 
+.container {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.up-up-child .post-box-big {
+    padding-bottom: 0;
+}
+
 .col-sm-4 {
 	padding-left: 2.5px;
     padding-right: 2.5px;
@@ -64,7 +73,10 @@ img.entry-thumb {
 
 <div class="page-container container">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	<?php the_content(); ?>
+	<?php 
+		$page_id = get_the_ID();
+		the_content();
+	?>
 	<?php endwhile; endif; ?>
 </div>
 
@@ -75,42 +87,15 @@ img.entry-thumb {
 
 		<?php
 
-		$categoryList = array(
-				// 'style_tips' => '6381',
-				// 'style_tips_old' => '4195',
+		$categoryList = array();
 
-				// 'hot_off_the_web' => '3567',
-
-				'style_help' => '4752',
-				'lg_lessons' => '4750',
-				// 'daily_fix' => '7',
-				'assisted_shopping' => '4741',
-				// 'features' => '4755',
-
-				// 'vocab' => '6382',
-
-				// 'videos' => '4754',
-				// 'myntra_tv' => '2',
-
-				// 'celeb_style' => '6379',
-				// 'celeb_style_old' => '4742',
-
-				'beauty_n_grooming' => '4746',
-
-				'trends_to_try' => '4753',
-				// 'trends' => '6345',
-
-				// 'quiz' => '4751',
-
-				'fashion_guides' => '628',
-
-				// 'fashion_trivia' => '5058',
-				// 'did_you_know' => '4743',
-
-				// 'makeover' => '6396',
-
-				// 'footwear_diaries' => '6380',
-			);
+		if ($page_id == 80599): //style tips
+			$categoryList['style_tips'] = '6396';
+		elseif($page_id == 80602):
+			$categoryList['lookbook'] = '6399';
+		elseif($page_id == 80604):
+			$categoryList['quiz'] = '4751';	
+		endif;
 
 		$categories = implode(',', $categoryList);
 
@@ -147,26 +132,10 @@ img.entry-thumb {
 	    		$counter++;
 	    		$post->i_summary = get_sub_field('block_summary');
 
-	    		$date_change = '2015-11-24';
-
-	    		$date_post = $post->post_date;
-
 	        	?>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
-					$this_category = get_the_category();
-					$category_id = $this_category[0]->cat_ID;
-					if ( $category_id == 4754 || $category_id == 2 || $category_id == 4741 ) :
-						get_template_part ( 'includes/content/item', 'normal' );
-					elseif ($category_id == 3567):
-						get_template_part ( 'includes/content/item', 'curated' );
-					// elseif ($date_post > $date_change):
-					// 	get_template_part ( 'includes/content/item', 'image' );
-					elseif ($date_post < $date_change):
-						get_template_part ( 'includes/content/item', 'normal' );
-					else:
-						get_template_part ( 'includes/content/item', 'normal' );
-					endif;
+						get_template_part ( 'includes/content/item', 'image' );
 					?>
 	        	</div>
 	            <?php
@@ -210,7 +179,7 @@ var load_next_posts = function(){
             type       : "GET",
             data       : {offset: next_offset, gender: gender, category: category },
             dataType   : "html",
-            url        : "http://www.myntra.com/lookgood/wp-content/themes/Curated/loop-handler.php",
+            url        : "http://www.myntra.com/lookgood/wp-content/themes/Curated/loop-handler-click-through.php",
             beforeSend : function(){
                 alert.html('<img src="http://www.myntra.com/lookgood/wp-content/themes/Curated/images/loader.gif" /> Loading... Please Wait').insertAfter('.page-wrapper').fadeIn();
             },

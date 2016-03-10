@@ -65,8 +65,13 @@ h3.entry-title {
     background-color: transparent;
 }
 
-.back img {
+.front img, .back img {
 	width: 100%;
+}
+
+.col-sm-4 {
+	padding-left: 2.5px;
+    padding-right: 2.5px;
 }
 </style>
 

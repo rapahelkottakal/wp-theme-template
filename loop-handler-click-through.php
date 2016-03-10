@@ -44,25 +44,11 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 		    	// Increment Counter
 		    	$counter ++;
 	    		$post->i_summary = get_sub_field('block_summary');
-
-	    		$date_change = '2015-11-24';
-
-	    		$date_post = $post->post_date;
 	        
 	        	?>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
-					$this_category = get_the_category();
-					$category_id = $this_category[0]->cat_ID;
-					if ( $category_id == 4754 || $category_id == 2 || $category_id == 4741 ) :
-						get_template_part ( 'includes/content/item', 'normal' );
-					// elseif ($date_post > $date_change):
-					// 	get_template_part ( 'includes/content/item', 'image' );
-					elseif ($date_post < $date_change):
-						get_template_part ( 'includes/content/item', 'normal' );
-					else:
-						get_template_part ( 'includes/content/item', 'normal' );
-					endif;
+						get_template_part ( 'includes/content/item', 'image' );
 					?>
 	        	</div>
 	            <?php

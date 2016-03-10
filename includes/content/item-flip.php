@@ -3,7 +3,7 @@
 	// Thumbnail
 	if ( has_post_thumbnail() ) { // Set Featured Image
 		?>
-		<div class="thumb-wrap zoom-zoom flip-n-click">
+		<div class="thumb-wrap flip-n-click">
 			<div class="front">
 				<img itemprop="image" src="<?php echo maha_featured_url( get_the_ID() , 'full'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 			</div>
@@ -14,7 +14,7 @@
 		<?php
     } elseif( maha_first_post_image() ) { // Set myntra placeholder image
     	?>
-		<div class="thumb-wrap zoom-zoom">
+		<div class="thumb-wrap">
 			<?php
 			if( get_field('c_url') != '' ):
 				echo '<a href="' . get_field('c_url') . '" target="_blank" rel="bookmark" title="' . get_title() . '">';

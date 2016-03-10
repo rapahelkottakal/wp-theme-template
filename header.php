@@ -68,13 +68,20 @@
     position: fixed;
     left: -200px;
     width: 200px;
-    height: 100%;
+    /*height: 100%;*/
     z-index: 9999;
-    background: lightgray;
+    background: white;
+    padding-bottom: 10px;
     -webkit-transition: all 500ms ease-out;
     -moz-transition: all 500ms ease-out;
     -o-transition: all 500ms ease-out;
     transition: all 500ms ease-out;
+}
+
+.menu hr {
+    margin: 0;
+    width: 75%;
+    border-color: #595858;
 }
 
 .menu.open {
@@ -85,25 +92,23 @@
   transform:         translateX(200px);
 }
 
-.menu .header {
-    padding: 10px;
-    background: beige;
-    height: 150px;
-}
-
 .menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.menu ul li {
+.menu ul li a {
     display: block;
     padding: 10px;
+    padding-left: 30px;
+    font-weight: 600;
 }
 
 .menuBtn {
+    cursor: pointer;
     width: 15%;
+    max-width: 75px;
     height: 40px;
     float: left;
     background: #E23129;
@@ -115,13 +120,14 @@
 }
 
 #searchform input[type="text"] {
-    width: 70%;
+    width: 69%;
     height: 40px;
     float: left;
 }
 
 #searchform .search-button {
     width: 15%;
+    max-width: 100px;
     height: 40px;
     padding: 6px;
     background: #e23129;
@@ -135,6 +141,29 @@
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.lg-logo {
+    display: block;
+    text-align: center;
+}
+
+.burger-icon {
+    width: 20px;
+}
+
+.up-up-child .post-box-big {
+    background-color: #FFFFFF;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    padding-bottom: 1px;
+    margin-bottom: 5px;
+}
+
+.feed-wrapper {
+    padding-top: 5px;
+    background-color: hsla(0,0%,0%,1);
+}
+
 </style>
 
 </head>
@@ -144,11 +173,16 @@
     <div id="body-maha" class="body-maha">
 
         <div class="menu">
-            <div class="header"></div>
             <ul>
-                <li><a href="http://www.myntra.com/lookgood">Home</a></li>
-                <li><a href="#">Style Tips</a></li>
-                <li><a href="#">Hot off the Web</a></li>
+                <li><a href="http://www.myntra.com/lookgood">Home<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/style-tips">Style Tips<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/trends">Trends<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/celeb-style">Celeb Styel<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/quizzes">Quiz<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/makeover">Makeover<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/vocab">Vocab<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/shoefie">Footwear Diaries<hr/></a></li>
+                <li><a href="http://www.myntra.com/lookgood/street-style">Street Style<hr/></a></li>
             </ul>
         </div>
 
@@ -163,6 +197,9 @@
             <div class="main-topbar-wrapper">
 
             <div class="main-logo-ads-wrap">
+                <a class="lg-logo" href="http://www.myntra.com/lookgood">
+                    <img src="http://assets.myntassets.com/v1456213395/Lookgood/common/myntra-LG-logo.jpg" class="alignnone wp-image-80590" width="360" height="61">
+                </a>
                 <div class="main-logo-ads">
 
                     <!-- start container -->
@@ -173,7 +210,7 @@
 
 
                                     <form action="<?php echo home_url(); ?>/" id="searchform" class="searchform" method="get">
-                                        <div class="menuBtn">M</div>
+                                        <div class="menuBtn"><img src="http://assets.myntassets.com/v1456213395/Lookgood/common/burger-icon.png" class="alignnone wp-image-80589 burger-icon" width="43" height="40"></div>
                                         <input type="text" id="s" name="s" placeholder="Search" autocomplete="off" />
                                         <button class="search-button"><i class="icon-search"></i></button>
                                     </form>

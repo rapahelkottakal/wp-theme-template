@@ -21,11 +21,6 @@ $gender = (isset($_GET['gender'])) ? $_GET['gender'] : '';
     display: none;
 }
 
-.feed-wrapper {
-    padding-top: 30px;
-    background-color: #F5F5F5;
-}
-
 .up-up-child .meta-subtitle {
 	display: block !important;
 	margin: 2% 5%;
@@ -59,6 +54,15 @@ h3.entry-title {
 
 .no-padding {
 	padding: 0;
+}
+
+.up-up-child .post-box-big {
+    padding-bottom: 0;
+}
+
+.col-sm-4 {
+	padding-left: 2.5px;
+    padding-right: 2.5px;
 }
 </style>
 
