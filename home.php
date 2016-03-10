@@ -81,10 +81,10 @@ img.entry-thumb {
 
 				// 'hot_off_the_web' => '3567',
 
-				'style_help' => '4752',
-				'lg_lessons' => '4750',
+				// 'style_help' => '4752', //active
+				// 'lg_lessons' => '4750', //active
 				// 'daily_fix' => '7',
-				'assisted_shopping' => '4741',
+				// 'assisted_shopping' => '4741', //active
 				// 'features' => '4755',
 
 				// 'vocab' => '6382',
@@ -95,14 +95,14 @@ img.entry-thumb {
 				// 'celeb_style' => '6379',
 				// 'celeb_style_old' => '4742',
 
-				'beauty_n_grooming' => '4746',
+				// 'beauty_n_grooming' => '4746', //active
 
-				'trends_to_try' => '4753',
+				// 'trends_to_try' => '4753', //active
 				// 'trends' => '6345',
 
 				// 'quiz' => '4751',
 
-				'fashion_guides' => '628',
+				'fashion_guides' => '628', //active
 
 				// 'fashion_trivia' => '5058',
 				// 'did_you_know' => '4743',
