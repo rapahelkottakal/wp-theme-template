@@ -5,7 +5,7 @@
 		?>
 		<div class="thumb-wrap">
 			<a href="<?php the_permalink(); ?>" target="_blank" rel="bookmark" title="<?php the_title(); ?>">
-				<img itemprop="image" class="entry-thumb zoom-it three" src="<?php echo maha_featured_url( get_the_ID() , 'full'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+				<img itemprop="image" class="entry-thumb zoom-it three" src="<?php echo maha_featured_url( get_the_ID() , 'medium'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 			</a>
 		</div>
 		<?php
