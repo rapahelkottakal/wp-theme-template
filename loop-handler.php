@@ -7,6 +7,8 @@ require_once('../../../wp-load.php');
 // Our variables
 $offset = (isset($_GET['offset'])) ? $_GET['offset'] : 0;
 
+$post_ids = (isset($_GET['posted'])) ? $_GET['posted'] : '';
+
 $gender = (isset($_GET['gander'])) ? $_GET['gender'] : '';
 $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 
@@ -19,8 +21,8 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 		$args = array(
 				'post_type' => 'post',
 				'post_status' => 'publish',
-				'orderby' => 'date',
-				'order' => 'DESC',
+				'orderby' => 'rand',
+				// 'order' => 'DESC',
 				'posts_per_page' => '9',
 
 			);
@@ -28,6 +30,8 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 		$args['cat'] = $category;
 		$args['offset'] = $offset;
 		$args['tag_slug__and'] = $gender;
+
+		$args['post__not_in'] = $post_ids;
 
 
 		query_posts($args);
@@ -50,7 +54,7 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 	    		$date_post = $post->post_date;
 	        
 	        	?>
-				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
+				<div <?php post_class("posted up-up-child col-xs-12 col-sm-4"); ?> data-id="<?php echo $post->ID; ?>" >
 					<?php
 					$this_category = get_the_category();
 					$category_id = $this_category[0]->cat_ID;

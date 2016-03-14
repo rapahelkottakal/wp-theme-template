@@ -61,6 +61,9 @@ img.entry-thumb {
     padding-right: 2.5px;
 }
 </style>
+<script type="text/javascript">
+var postIds = new Array();
+</script>
 
 <div class="page-container container">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -118,8 +121,8 @@ img.entry-thumb {
 		$args = array(
 					'post_type' => 'post',
 				    'post_status' => 'publish',
-				    'orderby' => 'date',
-				    'order' => 'DESC',
+				    'orderby' => 'rand',
+				    // 'order' => 'DESC',
 				    // 'cat' => '2751', //quiz
 				    'posts_per_page' => '9',
 				    // 'tag_slug__and' => $tags_array
@@ -152,6 +155,9 @@ img.entry-thumb {
 	    		$date_post = $post->post_date;
 
 	        	?>
+	        	<script type="text/javascript">
+	        	postIds.push(<?php echo $post->ID; ?>);
+	        	</script>
 				<div <?php post_class("up-up-child col-xs-12 col-sm-4"); ?>>
 					<?php
 					$this_category = get_the_category();
@@ -205,19 +211,27 @@ var alert = $("<div>", { class: 'story-alert', style: 'display:none' });
 
 //Ajax next load
 var load_next_posts = function(){
-		console.log(next_offset);
+		// console.log(next_offset);
         $.ajax({
             type       : "GET",
-            data       : {offset: next_offset, gender: gender, category: category },
+            data       : {offset: next_offset, gender: gender, category: category, posted: postIds },
             dataType   : "html",
             url        : "http://www.myntra.com/lookgood/wp-content/themes/Curated/loop-handler.php",
             beforeSend : function(){
+            	// console.log(postIds);
                 alert.html('<img src="http://www.myntra.com/lookgood/wp-content/themes/Curated/images/loader.gif" /> Loading... Please Wait').insertAfter('.page-wrapper').fadeIn();
             },
             success    : function(data){
-                $data = $(data);
+                var $data = $(data),
+	                $postDivs = $data.find('.posted');
 
-                // console.log('ajax success', $data);
+	            //add post ids to posted ids list
+	            $postDivs.each(function() {
+	            	postIds.push($(this).data('id'));
+	            	// console.log($(this).data('id'));
+	            });
+
+                // console.log('ids', $data.find('.posted'));
                 if( $data.find('.type-post').size() != 0 ) {
                     next_offset = next_offset + 9;
                     $('.feed-container').append( $data );
