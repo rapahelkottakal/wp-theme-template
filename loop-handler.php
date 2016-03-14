@@ -28,7 +28,7 @@ $category = (isset($_GET['category'])) ? $_GET['category'] : '';
 			);
 
 		$args['cat'] = $category;
-		$args['offset'] = $offset;
+		// $args['offset'] = $offset;
 		$args['tag_slug__and'] = $gender;
 
 		$args['post__not_in'] = $post_ids;
